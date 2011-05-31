@@ -108,7 +108,7 @@ define(['./jquery'], function(jQuery){
             $textarea.live('input paste',function(e){ setTimeout( update, 250); });             
             
             // Run update once when elastic is initialized
-            setTimeout(update,1);
+            update()
         });
     }
 });
