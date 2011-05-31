@@ -13,7 +13,8 @@
  *
  * Date: Thu May 12 15:04:36 2011 -0400
  */
-(function( window, undefined ) {
+define(function() {
+var undefined = void(0)
 
 // Use the correct document accordingly with window argument (sandbox)
 var document = window.document,
@@ -8931,6 +8932,5 @@ jQuery.each([ "Height", "Width" ], function( i, name ) {
 
 });
 
-
-window.jQuery = window.$ = jQuery;
-})(window);
+return jQuery;
+});

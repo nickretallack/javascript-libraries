@@ -23,10 +23,13 @@ define(function(require, exports, module){
 
   // Require Underscore, if we're on the server, and it's not already present.
   var _ = this._;
-  if (!_ && (typeof require !== 'undefined')) _ = require("underscore")._;
+  var $ = this.jQuery || this.Zepto;
+  if (typeof require !== 'undefined') {
+    _ = require("./underscore");
+    $ = require("./jquery");
+  }
 
   // For Backbone's purposes, either jQuery or Zepto owns the `$` variable.
-  var $ = this.jQuery || this.Zepto;
 
   // Turn on `emulateHTTP` to use support legacy HTTP servers. Setting this option will
   // fake `"PUT"` and `"DELETE"` requests via the `_method` parameter and set a
