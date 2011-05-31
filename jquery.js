@@ -1,0 +1,1 @@
+standard/jquery-latest.js
