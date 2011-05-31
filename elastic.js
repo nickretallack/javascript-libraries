@@ -70,7 +70,7 @@ define(['./jquery'], function(jQuery){
             function update() {
                 
                 // Get curated content from the textarea.
-                var textareaContent = $textarea.val().replace(/&/g,'&amp;').replace(/  /g, '&nbsp;').replace(/<|>/g, '&gt;').replace(/\n/g, '<br />');
+                var textareaContent = $textarea.val().replace(/&/g,'&amp;').replace(/  /g, '&nbsp;').replace(/<|>/g, '&gt;').replace(/\n/g, '<br>');
 
                 var twinContent = $twin.html();
                 
