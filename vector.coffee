@@ -2,6 +2,8 @@ define [
     './underscore'
 ], (_) ->
 
+    css_properties = ['top','left']
+
     class Vector
         constructor: (@components...) ->
 
@@ -29,6 +31,14 @@ define [
         subtract: (vector) ->
             @add(vector.invert())
 
+        as_css: ->
+            left:@components[0]
+            top:@components[1]
+
+        equals: (vector) ->
+            _.all _.zip(@components, vector.components), (item) -> item[0] == item[1]
+
 
     Vector::plus = Vector::add
     Vector::minus = Vector::subtract
+    Vector
