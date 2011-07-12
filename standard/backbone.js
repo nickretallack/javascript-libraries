@@ -23,10 +23,8 @@ define(function(require, exports, module){
 
   // Require Underscore, if we're on the server, and it's not already present.
   var _ = this._;
-  var $ = this.jQuery || this.Zepto;
   if (typeof require !== 'undefined') {
     _ = require("./underscore");
-    $ = require("./jquery");
   }
 
   // For Backbone's purposes, either jQuery or Zepto owns the `$` variable.
