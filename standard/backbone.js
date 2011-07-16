@@ -409,6 +409,10 @@ define(function(require, exports, module){
     }
 
   });
+  Backbone.Model.parse = function(resp, xhr) {
+      return resp;
+  }
+
 
   // Backbone.Collection
   // -------------------
@@ -569,7 +573,7 @@ define(function(require, exports, module){
     _prepareModel: function(model, options) {
       if (!(model instanceof Backbone.Model)) {
         var attrs = model;
-        model = new this.model(attrs, {collection: this});
+        model = new this.model(this.model.parse(attrs), {collection: this});
         if (model.validate && !model._performValidation(attrs, options)) model = false;
       } else if (!model.collection) {
         model.collection = this;
