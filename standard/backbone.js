@@ -210,6 +210,7 @@ define(function(require, exports, module){
 
       // Update attributes.
       for (var attr in attrs) {
+        this[attr] = attrs[attr]; // who needs 'get'?
         var val = attrs[attr];
         if (!_.isEqual(now[attr], val)) {
           now[attr] = val;
