@@ -318,7 +318,8 @@ define(function(require, exports, module){
         if (success) success(model, resp);
       };
       options.error = wrapError(options.error, model, options);
-      return (this.sync || Backbone.sync).call(this, 'delete', this, options);
+      options.success()
+      //return (this.sync || Backbone.sync).call(this, 'delete', this, options);
     },
 
     // Default URL for the model's representation on the server -- if you're
