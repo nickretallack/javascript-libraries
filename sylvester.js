@@ -20,6 +20,7 @@
 // FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 // DEALINGS IN THE SOFTWARE.
 
+define(function(){
 var Sylvester = {
   version: '0.1.3',
   precision: 1e-6
@@ -1247,8 +1248,26 @@ Plane.YZ = Plane.create(Vector.Zero(3), Vector.i);
 Plane.ZX = Plane.create(Vector.Zero(3), Vector.j);
 Plane.YX = Plane.XY; Plane.ZY = Plane.YZ; Plane.XZ = Plane.ZX;
 
+Vector.prototype.equals = Vector.prototype.eql
+Vector.prototype.minus = Vector.prototype.subtract
+Vector.prototype.plus = Vector.prototype.add
+Vector.prototype.scale = Vector.prototype.multiply
+Vector.prototype.distance = Vector.prototype.distanceFrom
+Vector.prototype.length = Vector.prototype.modulus
+Vector.prototype.as_css = function(){
+    return {left:this.elements[0], top:this.elements[1]}
+}
+
+return {
 // Utility functions
-var $V = Vector.create;
-var $M = Matrix.create;
-var $L = Line.create;
-var $P = Plane.create;
+    '$V': function() { return Vector.create(Array.prototype.slice.call(arguments)) },
+    '$M': Matrix.create,
+    '$L': Line.create,
+    '$P': Plane.create,
+    Vector:Vector,
+    Matrix:Matrix,
+    Line:Line,
+    Plane:Plane
+}
+
+})
