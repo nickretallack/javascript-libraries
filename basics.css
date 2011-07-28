@@ -1,0 +1,4 @@
+a {text-decoration:none; color:blue; cursor:pointer}
+a:hover {text-derocation:underline}
+
+input, textarea {font:inherit}
