@@ -17,7 +17,7 @@ define [
             new Vector (_.map _.zip(@components, vector.components), (components) -> action components...)...
 
         magnitude: ->
-            Math.sqrt @reduce 0, (component, accumulator) -> accumulator + component*component
+            Math.sqrt @reduce 0, (accumulator, component) -> accumulator + component*component
 
         scale: (factor) ->
             @fmap (component) -> component * factor
@@ -38,6 +38,19 @@ define [
         equals: (vector) ->
             _.all _.zip(@components, vector.components), (item) -> item[0] == item[1]
 
+        distance: (vector) ->
+            @minus(vector).magnitude()
+
+        unit: ->
+            @scale 1/@magnitude()
+
+        
+
+        tangent: ->
+
+
+        angle: ->
+            Math.atan2 @components[1], @components[0]
 
     Vector::plus = Vector::add
     Vector::minus = Vector::subtract
