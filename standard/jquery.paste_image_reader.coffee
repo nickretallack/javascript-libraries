@@ -43,18 +43,9 @@
  
           # Get the corresponding file data
           file = clipboardData.items[i].getAsFile()
- 
-          # Read the file data and fire off the callback with
-          # the useful stuff when it's been read
-          reader = new FileReader()
-          reader.onload = (evt) ->
-            options.callback.call element,
-              filename: file.name
-              dataURL: evt.target.result
- 
-          reader.readAsDataURL(file)
+          options.callback file
  
           # We found an image, we're done
           found = true
- 
+
 )(jQuery)

@@ -30,7 +30,7 @@
           found = false;
           clipboardData = event.clipboardData;
           return Array.prototype.forEach.call(clipboardData.types, function(type, i) {
-            var file, reader;
+            var file;
             if (found) {
               return;
             }
@@ -38,14 +38,7 @@
               return;
             }
             file = clipboardData.items[i].getAsFile();
-            reader = new FileReader();
-            reader.onload = function(evt) {
-              return options.callback.call(element, {
-                filename: file.name,
-                dataURL: evt.target.result
-              });
-            };
-            reader.readAsDataURL(file);
+            options.callback(file);
             return found = true;
           });
         });
