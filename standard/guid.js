@@ -5,3 +5,5 @@ function guidGenerator() {
     return (S4()+S4()+"-"+S4()+"-"+S4()+"-"+S4()+"-"+S4()+S4()+S4());
 }
 var Guid = guidGenerator;
+
+if (typeof exports === 'object') exports.Guid = Guid
