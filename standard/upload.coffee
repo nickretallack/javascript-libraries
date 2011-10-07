@@ -9,7 +9,7 @@ cancel_event = (event) ->
 ### The Drag-and-Drop API was standardized in Internet Explorer 6.
 It requires that you cancel dragover and dragenter when you are done with them.###
 
-drop_files_here = (element, upload_url, success, error, progress) ->
+window.drop_files_here = (element, upload_url, success, error, progress) ->
     element.addEventListener 'dragover', (event) ->
             console.log("over")
             cancel_event(event)
@@ -48,7 +48,7 @@ monitor_progress = (request, handler) ->
     request.upload.addEventListener("progress", call_handler, false);
     request.upload.addEventListener("load", call_handler, false);
 
-upload_file = (file, url, success_handler, error_handler, update_progress_bar) ->
+window.upload_file = (file, url, success_handler, error_handler, update_progress_bar) ->
     ### Webkit supports uploading multiple files in one web request, just like in a form,
     but lets focus on uploading one at a time for simplicity ###
 
@@ -75,7 +75,7 @@ upload_file = (file, url, success_handler, error_handler, update_progress_bar) -
 
 upload_with_formdata = (request, file) ->
     form_data = new FormData();
-    form_data.append('Filedata', file);
+    form_data.append('file', file);
     request.send(form_data);
 
 # TODO: handle this server-side
